@@ -1,14 +1,14 @@
-import re
-
-from compare import expect, ensure, matcher
-
 from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
 
+<<<<<<< HEAD
 from tardis.tardis_portal.models import \
     Experiment, ExperimentACL, User, UserProfile
+=======
+from tardis.tardis_portal.models import Experiment, ObjectACL, User
+>>>>>>> f3ef3545... Enabled unused import check in .pylintrc and fixed affected modules
 
 
 def _create_user_and_login(username='testuser', password='testpass'):
@@ -47,10 +47,10 @@ class TabTestCase(TestCase):
         response = client.get(\
                     reverse('tardis.apps.anzsrc_codes.views.index',
                             args=[self.experiment.id]))
-        expect(response.status_code).to_equal(403)
+        self.assertEqual(response.status_code, 403)
 
     def testAccessWithReadPerms(self):
         response = self.client.get(\
                     reverse('tardis.apps.anzsrc_codes.views.index',
                             args=[self.experiment.id]))
-        expect(response.status_code).to_equal(200)
+        self.assertEqual(response.status_code, 200)
