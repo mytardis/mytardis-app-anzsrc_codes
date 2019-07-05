@@ -1,4 +1,4 @@
-Django==1.11.21
+Django==1.11.22
 lxml==4.3.2
 pylint==1.9.4; python_version < "3.0"
 pylint==2.3.1; python_version >= "3.5"
